@@ -26,10 +26,10 @@ const svg = `
 
   <text x="186" y="226" font-family="ui-sans-serif, system-ui, Segoe UI, Roboto, sans-serif" font-size="64" font-weight="700" fill="#ffffff">Maxon</text>
 
-  <text x="96" y="372" font-family="ui-sans-serif, system-ui, Segoe UI, Roboto, sans-serif" font-size="66" font-weight="800" fill="#ffffff"><tspan fill="#00ADD8" font-style="italic">You</tspan> Aren't Going To Write It.</text>
-  <text x="96" y="452" font-family="ui-sans-serif, system-ui, Segoe UI, Roboto, sans-serif" font-size="66" font-weight="800" fill="#8aa0b2">You <tspan fill="#00ADD8" font-style="italic">Are</tspan> Going To Read It.</text>
+  <text x="96" y="392" font-family="ui-sans-serif, system-ui, Segoe UI, Roboto, sans-serif" font-size="82" font-weight="800" fill="#ffffff"><tspan fill="#00ADD8" font-style="italic">You</tspan> Aren't Going</text>
+  <text x="96" y="480" font-family="ui-sans-serif, system-ui, Segoe UI, Roboto, sans-serif" font-size="82" font-weight="800" fill="#ffffff">To Write It.</text>
 
-  <text x="96" y="552" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" fill="#8aa0b2">Maxon · written by AI, for AI · maxon.dev</text>
+  <text x="96" y="560" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" fill="#8aa0b2">Maxon · written by AI, for AI · maxon.dev</text>
 </svg>`;
 
 const out = fileURLToPath(new URL('../public/og.png', import.meta.url));

@@ -81,6 +81,14 @@ export default defineConfig({
           label: 'Specification',
           autogenerate: { directory: 'docs/spec' },
         },
+        {
+          label: 'Contributing',
+          link: '/docs/contributing/',
+        },
+        {
+          label: 'About',
+          link: '/docs/about/',
+        },
       ],
     }),
     tailwind({ applyBaseStyles: false }),

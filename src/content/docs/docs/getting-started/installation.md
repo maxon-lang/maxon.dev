@@ -1,40 +1,37 @@
 ---
 title: Installation
-description: Build the Maxon compiler from source on Windows or Linux.
+description: Build the Maxon compiler from source with the .NET SDK.
 sidebar:
   order: 2
 ---
 
-Maxon v1.0 is installed by building the compiler from source. There is no prebuilt binary or
+Maxon is installed by building the compiler from source. There is no prebuilt binary or
 installer yet.
 
-For a full walk-through — prerequisites, per-OS steps, the VS Code extension, and verifying
-your build — see the dedicated [Install page](/install/).
+For a full walk-through — prerequisites, the VS Code extension, and verifying your build — see
+the dedicated [Install page](/install/).
 
 ## Quick version
 
-Once you have the prerequisites installed and the repository cloned:
+Once you have the prerequisites installed:
 
 ```bash
-make all                              # build the compiler, LSP, and extension
-./bin/maxon examples/basic.maxon      # compile and run a program
-make test                             # run the test suite
+git clone https://github.com/Stormalong/maxon.git
+cd maxon
+
+dotnet build maxon-sharp               # build the compiler -> bin/maxon
+bin/maxon build examples/basic.maxon   # compile and run a program
+bin/maxon spec-test                    # run the spec-test suite
 ```
 
-On Windows, run these commands in **Git Bash** (not PowerShell or cmd).
+On Windows, `buildall.bat` builds and tests the full toolchain — the C# compiler, the
+self-hosted compiler, and their spec tests — in one step.
 
 ## Prerequisites at a glance
 
-**Windows**
-
-- Git for Windows (includes Git Bash)
-- Visual Studio 2022 with the C++ development tools
-- CMake 3.13+
-- Ninja
-
-**Linux**
-
-- The provided dev container (recommended), or
-- `build-essential`, `cmake`, `ninja-build`, and Node.js 20+
+- [.NET 10 SDK](https://dotnet.microsoft.com/download) — the compiler (`maxon-sharp`) targets
+  `net10.0`.
+- Git
+- Node.js 20+ — only needed to build the VS Code extension.
 
 See the [Install page](/install/) for the complete instructions and editor setup.
