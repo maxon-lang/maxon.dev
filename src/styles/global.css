@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    font-family:
+      ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,
+      Arial, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Subtle terminal-grid backdrop used behind the hero. */
+.mx-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(0, 173, 216, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 173, 216, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+}

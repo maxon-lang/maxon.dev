@@ -1,0 +1,45 @@
+---
+/**
+ * Syntax-highlighted Maxon code block for the bespoke marketing pages.
+ * Wraps Astro's built-in <Code> (Shiki) and feeds it the Maxon TextMate grammar
+ * loaded from src/grammars, so highlighting matches the editor and the docs.
+ * Highlighting happens at build time — no client JS.
+ */
+import { Code } from 'astro:components';
+import rawGrammar from '../grammars/maxon.tmLanguage.json';
+
+// Shiki matches a fenced block's language against the grammar's lowercase `name`.
+// Clone so we don't mutate the shared imported module object.
+const grammar = { ...rawGrammar, name: 'maxon' };
+
+interface Props {
+  code: string;
+  /** Optional filename shown as a title bar above the code. */
+  title?: string;
+}
+
+const { code, title } = Astro.props;
+---
+
+<div class="mx-codeblock overflow-hidden rounded-xl border border-ink-700 bg-ink-950/80 shadow-2xl shadow-black/40">
+  {
+    title && (
+      <div class="flex items-center gap-2 border-b border-ink-700 px-4 py-2.5">
+        <span class="h-2.5 w-2.5 rounded-full bg-ink-600" />
+        <span class="h-2.5 w-2.5 rounded-full bg-ink-600" />
+        <span class="h-2.5 w-2.5 rounded-full bg-ink-600" />
+        <span class="ml-2 font-mono text-xs text-slate-500">{title}</span>
+      </div>
+    )
+  }
+  <div class="mx-code-scroll overflow-x-auto p-4 text-[0.86rem] leading-relaxed">
+    <Code code={code.trim()} lang={grammar as any} theme="github-dark" />
+  </div>
+</div>
+
+<style is:global>
+  .mx-codeblock pre {
+    background: transparent !important;
+    margin: 0;
+  }
+</style>
