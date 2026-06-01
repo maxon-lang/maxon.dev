@@ -5,7 +5,7 @@ import MarketingLayout from '../layouts/MarketingLayout.astro';
 // To wire up a real release: set `released` to true and update `version` + the
 // `asset` filenames to match what you upload to the release. `latest/download`
 // always resolves to the newest release, so the links keep working across versions.
-const RELEASES = 'https://github.com/Stormalong/maxon/releases';
+const RELEASES = 'https://github.com/maxon-lang/maxon/releases';
 const released = false; // flip to true once the first release with binaries is published
 const version = 'v1.0.0';
 
@@ -128,7 +128,7 @@ const assetUrl = (asset: string) => `${RELEASES}/latest/download/${asset}`;
         <span class="ml-2 font-mono text-xs text-slate-500">terminal</span>
       </div>
       <pre class="overflow-x-auto p-4 font-mono text-sm leading-relaxed text-slate-300"><span class="text-slate-500"># clone</span>
-<span class="text-brand-300">git</span> clone https://github.com/Stormalong/maxon.git
+<span class="text-brand-300">git</span> clone https://github.com/maxon-lang/maxon.git
 <span class="text-brand-300">cd</span> maxon
 
 <span class="text-slate-500"># build the compiler -> bin/maxon</span>

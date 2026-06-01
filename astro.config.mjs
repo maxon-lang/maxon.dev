@@ -28,7 +28,7 @@ export default defineConfig({
         replacesTitle: false,
       },
       social: {
-        github: 'https://github.com/Stormalong/maxon',
+        github: 'https://github.com/maxon-lang/maxon',
       },
       plugins: [
         // Mixed-feed blog (release notes + essays) served at /blog.

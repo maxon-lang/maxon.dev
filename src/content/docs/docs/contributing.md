@@ -10,7 +10,7 @@ but it's built in the open — and contributions are welcome, whether that's a b
 patch to the compiler, a documentation fix, or a real program written in the language.
 
 Everything lives in one repository:
-[github.com/Stormalong/maxon](https://github.com/Stormalong/maxon).
+[github.com/maxon-lang/maxon](https://github.com/maxon-lang/maxon).
 
 ## Ways to contribute
 
@@ -18,7 +18,7 @@ Everything lives in one repository:
 
 Found a miscompile, a crash, a confusing diagnostic, or a place where the docs and the
 compiler disagree? Open an issue on the
-[issue tracker](https://github.com/Stormalong/maxon/issues). A good report includes:
+[issue tracker](https://github.com/maxon-lang/maxon/issues). A good report includes:
 
 - A minimal `.maxon` program that reproduces the problem.
 - What you expected to happen, and what actually happened (exact output or error code).
@@ -53,7 +53,7 @@ Maxon builds from source. See [Installation](/docs/getting-started/installation/
 prerequisites; the short version, once you have them:
 
 ```bash
-git clone https://github.com/Stormalong/maxon.git
+git clone https://github.com/maxon-lang/maxon.git
 cd maxon
 
 dotnet build maxon-sharp     # build the compiler -> bin/maxon

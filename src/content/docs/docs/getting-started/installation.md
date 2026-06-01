@@ -16,7 +16,7 @@ the dedicated [Install page](/install/).
 Once you have the prerequisites installed:
 
 ```bash
-git clone https://github.com/Stormalong/maxon.git
+git clone https://github.com/maxon-lang/maxon.git
 cd maxon
 
 dotnet build maxon-sharp               # build the compiler -> bin/maxon
