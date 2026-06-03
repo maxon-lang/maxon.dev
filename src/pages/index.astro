@@ -37,31 +37,59 @@ while iteration < 10 'iterate'
 	iteration = Iteration{iteration + 1}
 end 'iterate'`;
 
+// The "no single language had all of it" synthesis: each trait names the language
+// whose *experience* of that trait Maxon aims to match — the ease of it, not the
+// implementation technique. The trait·language pairs are surfaced as an
+// "Influences" strip above the grid (see `influences` below).
 const features = [
+  {
+    title: 'Memory safety, the ease of Rust',
+    body: 'Safe by construction — no nulls, no dangling references, no data races — with the borrow checker doing the work and no manual lifetime annotations to write.',
+  },
+  {
+    title: 'Concurrency, the ease of Go',
+    body: 'Concurrency that is easy to write and easy to read — the ergonomics Go is loved for, without the ceremony.',
+  },
+  {
+    title: 'Automatic memory, the ease of C#',
+    body: 'Memory is managed for you — you never free by hand — via deterministic reference counting, so there are no garbage-collector pauses.',
+  },
+  {
+    title: 'Native speed, the ease of C / Zig',
+    body: 'Compiles straight to native machine code with a from-scratch backend — C/Zig-class performance, no LLVM, no VM, no external runtime.',
+  },
+  {
+    title: 'Runs everywhere',
+    body: 'Native executables for Windows, macOS, and Linux on both x86-64 and Arm64 — plus a WebAssembly backend for the browser and the edge. One source, every target.',
+  },
+  {
+    title: 'Strong types, the ease of Swift',
+    body: "Static typing with real inference and ranged type aliases that encode domain bounds into the types — Swift's safety-with-clarity feel, none of the boilerplate.",
+  },
+  {
+    title: 'Clean errors, the ease of Swift',
+    body: 'Errors are explicit and resolved where they occur (try / otherwise) — no exceptions thrown across the program, no silent failures. The same structured codes are the signal an agent uses to correct itself.',
+  },
+  {
+    title: 'Tooling, the ease of Bun',
+    body: 'A fast, batteries-included toolchain: one command to build and run, with a Language Server and VS Code extension in the box — real-time diagnostics, completion, and hover.',
+  },
   {
     title: 'Free and open source',
     body: 'The entire project — compiler, standard library, language server, and tooling — is open source under MIT and Apache-2.0. Read it, fork it, build on it.',
   },
-  {
-    title: 'Native x86-64 backend',
-    body: 'Compiles straight to PE and ELF executables with a from-scratch code generator — no LLVM, no VM, no external runtime.',
-  },
-  {
-    title: 'Reference-counted memory',
-    body: 'Deterministic cleanup the moment a value is no longer referenced. No garbage collector, no pauses.',
-  },
-  {
-    title: 'Strong inference + ranged types',
-    body: 'Static typing that stays terse, with ranged type aliases that encode real domain bounds into the types themselves.',
-  },
-  {
-    title: 'Diagnostics built for a feedback loop',
-    body: 'Structured errors with stable codes — exactly the signal an agent uses to read a failure and correct itself.',
-  },
-  {
-    title: 'First-class tooling',
-    body: 'A custom Language Server and VS Code extension ship with the language: real-time diagnostics, completion, and hover.',
-  },
+];
+
+// The synthesis, stated as trait · language pairs. Rendered as a compact strip
+// above the feature grid: "no single language had all of it."
+const influences = [
+  ['Memory safety', 'Rust'],
+  ['Concurrency', 'Go'],
+  ['Managed memory', 'C#'],
+  ['Native speed', 'C / Zig'],
+  ['Strong types', 'Swift'],
+  ['Clean errors', 'Swift'],
+  ['Tooling', 'Bun'],
 ];
 ---
 
@@ -167,11 +195,28 @@ const features = [
   <!-- Feature grid -->
   <section class="border-y border-ink-700/60 bg-ink-950/40">
     <div class="mx-auto max-w-6xl px-5 py-20">
-      <h2 class="text-2xl font-bold text-white sm:text-3xl">A real language underneath.</h2>
+      <div class="font-mono text-sm text-brand-300">No single language had all of it</div>
+      <h2 class="mt-3 text-2xl font-bold text-white sm:text-3xl">The best of each, in one language.</h2>
       <p class="mt-3 max-w-2xl text-slate-400">
-        The AI story only holds up because the compiler does. Maxon is a statically-typed,
-        compiled language that produces native executables — early, but real.
+        Every language Maxon admires nails something and gives up something else. None had the whole
+        set, so Maxon set out to combine them — the safety of Rust, the concurrency of Go, the
+        convenience of C#, the speed of C and Zig, the type system and error handling of Swift, the
+        tooling of Bun. And the AI story only holds up because the compiler does: this is a real,
+        statically-typed, compiled language that produces native executables today.
       </p>
+
+      <!-- Influences strip: trait · language pairs -->
+      <ul class="mt-8 flex flex-wrap gap-2.5" aria-label="Language influences">
+        {
+          influences.map(([trait, lang]) => (
+            <li class="inline-flex items-baseline gap-2 rounded-full border border-ink-700 bg-ink-900 px-3.5 py-1.5 text-sm">
+              <span class="text-slate-300">{trait}</span>
+              <span class="font-mono text-xs text-brand-300">{lang}</span>
+            </li>
+          ))
+        }
+      </ul>
+
       <div class="mt-10 grid gap-px overflow-hidden rounded-xl border border-ink-700 bg-ink-700 sm:grid-cols-2 lg:grid-cols-3">
         {
           features.map((f) => (
@@ -281,6 +326,27 @@ const features = [
           View on GitHub
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- Where it fits — companion registry (Canra) -->
+  <section class="mx-auto max-w-6xl px-5 py-20">
+    <div class="max-w-2xl">
+      <div class="font-mono text-sm text-brand-300">Where it fits</div>
+      <h2 class="mt-3 text-2xl font-bold text-white sm:text-3xl">
+        One language, and the contracts to fill it.
+      </h2>
+      <p class="mt-4 leading-relaxed text-slate-300">
+        Because a Maxon agent reads contracts as well as it writes code, it pairs naturally with
+        <a
+          href="https://canra.dev"
+          target="_blank"
+          rel="noopener"
+          class="text-brand underline-offset-2 hover:underline"
+        >Canra</a> — a general, language-agnostic registry of machine-readable specs. Maxon projects
+        use Canra to fetch a spec and generate a verified native implementation, no third-party
+        package required.
+      </p>
     </div>
   </section>
 </MarketingLayout>
