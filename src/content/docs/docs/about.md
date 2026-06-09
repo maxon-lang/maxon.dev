@@ -54,4 +54,5 @@ the language itself was still taking shape.
 
 The project is open source under MIT and Apache-2.0, and contributions are
 [welcome](/docs/contributing/). You can find the source and reach the author on
-[GitHub](https://github.com/Stormalong).
+[GitHub](https://github.com/Stormalong), or email Eric at
+[stormalong@gmail.com](mailto:stormalong@gmail.com).
